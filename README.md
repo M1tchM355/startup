@@ -24,3 +24,8 @@ RecipeShare is a recipe generating and sharing app. Users generate a recipe base
 7. **WebSocket** - As recipes are saved to community and users rate and comment on recipes, their inputs are broadcast to all other users.
 
 ### Initial Design
+![Mock](RecipeShareLogin.png)
+![Mock](RecipeShareNewRecipe.png)
+![Mock](RecipeSharePersonal.png)
+![Mock](RecipeShareCommunity.png)
+![Mock](RecipeShareRecipe.png)
