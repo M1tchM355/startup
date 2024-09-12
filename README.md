@@ -13,14 +13,14 @@ RecipeShare is a recipe generating and sharing app. Users generate a recipe base
 
 ### Technologies Used
 1. **HTML** - Uses correct HTML structure for application. Four HTML pages. One for login, one for generating a recipe, one for the personal recipe box, and one for the community recipe box. Hyperlinks between pages.
-2. CSS - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
-3. JavaScript - Provides login, recipe display, display other recipes, shows comments and ratings, backend endpoint calls.
-4. React - 4 page application reactive to user's actions. Use react for routing between pages. Make and recycle recipe cards.
-5. Service - Backend service with endpoints for:
+2. **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
+3. **JavaScript** - Provides login, recipe display, display other recipes, shows comments and ratings, backend endpoint calls.
+4. **React** - 4 page application reactive to user's actions. Use react for routing between pages. Make and recycle recipe cards.
+5. **Service** - Backend service with endpoints for:
     * Generating recipe (groq api)
     * Storing and sorting recipes with comments and rating
     * Retrieving community recipes status
-6. DB/Login - Store users, recipes, ratings, and comments in database. Register and login users. Credentials securely stored in database. Can’t do anything unless authenticated.
-7. WebSocket - As recipes are saved to community and users rate and comment on recipes, their inputs are broadcast to all other users.
+6. **DB/Login** - Store users, recipes, ratings, and comments in database. Register and login users. Credentials securely stored in database. Can’t do anything unless authenticated.
+7. **WebSocket** - As recipes are saved to community and users rate and comment on recipes, their inputs are broadcast to all other users.
 
 ### Initial Design
