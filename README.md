@@ -6,10 +6,11 @@
 RecipeShare is a recipe generating and sharing app. Users generate a recipe based on available ingredients. After making the recipe, they rate it on a scale of 1 to 5, leave any comments they may have, and save it to their own personal recipe box if they wish. Every recipe is saved with its rating and comments on the community page, where anyone logged in can see it. Users are able to try out the recipes on the community page and add their own rating and comments.
 
 ### Key Features
+- Secure login over HTTPS
 - AI-supported recipe generation
 - Ability to save recipes to personal recipe box
 - 5 star rating system and comments for each recipe
-- Community recipe box sorted by highest ratings
+- Community recipe box displayed in realtime
 
 ### Technologies Used
 1. **HTML** - Uses correct HTML structure for application. Four HTML pages. One for login, one for generating a recipe, one for the personal recipe box, and one for the community recipe box. Hyperlinks between pages.
