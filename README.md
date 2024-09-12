@@ -3,7 +3,7 @@
 ## Specification Deliverable
 
 ### Elevator Pitch
-RecipeShare is a recipe generating and sharing app. Users generate a recipe based on inputted ingredients. After making the recipe, they rate it on a scale of 1 to 5, leave any comments they may have, and save it to their own personal recipe box if they wish. Every recipe is saved with its rating and comments on the community page, where anyone logged in can see it. Users are able to try out the recipes on the community page and add their own rating and comments.
+Ever opened your fridge, stared at the random food items and wondered what to eat? RecipeShare is the answer! RecipeShare is an AI recipe generating and sharing app. Users generate a recipe based on inputted ingredients. After making the recipe, they rate it on a scale of 1 to 5, leave any comments they may have, and save it to their own personal recipe box if they wish. Every recipe is saved with its rating and comments on the community page, where anyone logged in can see it. Users are able to try out the recipes on the community page and add their own rating and comments.
 
 ### Key Features
 - Secure login over HTTPS
