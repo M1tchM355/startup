@@ -44,6 +44,6 @@ For this deliverable I built out the structure of my application using HTML.
 - **Text** - Placeholder text on the new recipe page for recipe, text for ingredients input, and recipes on personal recipe box, community recipe box, and recipe more info page.
 - **3rd Party Services** - Placeholder recipe generation for call to 3rd party AI text generator. https://console.groq.com/docs/quickstart
 - **Images** - Images of stars for the recipe rating system.
-- **Login** - Input box and submit button for login.
+- **Login** - Input box and submit button for login. User ID is shown after logging in.
 - **DB** - User ID, recipes, rating, and comments represent data pulled from the database.
 - **Websocket** -  Recipes on the community page represent recieps shared by other users in real time.
