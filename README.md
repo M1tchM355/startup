@@ -30,3 +30,8 @@ Ever opened your fridge, stared at the random food items and wondered what to ea
 ![Mock](RecipeSharePersonal.png)
 ![Mock](RecipeShareCommunity.png)
 ![Mock](RecipeShareRecipe.png)
+
+## HTML Deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
