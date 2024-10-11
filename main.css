@@ -4,12 +4,38 @@ body {
     min-width: 375px;
 }
 
+header {
+    flex: 0 80px;
+}
+
+header span {
+    float: right;
+}
+
 main {
     flex: 1 calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+ul {
+    flex: 1;
+    display: flex;
+    /*  overwrite Bootstrap so the menu does not wrap */
+    flex-direction: row !important;
+    list-style: none;
+}
+
+.navbar-brand {
+    padding-left: 1em;
+    border-bottom: solid rgb(182, 182, 182) thin;
+}
+
+ul .nav-item {
+
+    padding-right: 2em;
 }
 
 footer {
