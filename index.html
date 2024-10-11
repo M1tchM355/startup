@@ -19,28 +19,30 @@
     <!-- Use header, main, and footer elements to give semantic structure -->
     
 
-    <main>
-      <h1>Welcome to RecipeShare!</h1>
-      <h4>Log in or create an account to get started:</h4>
-      <form method="get" action="new.html">
-        <div>
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
-        </div>
-        <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+    <main class="container-fluid text-center">
+      <div>
+        <h1>Welcome to RecipeShare!</h1>
+        <h4>Log in or create an account to get started:</h4>
+        <form method="get" action="new.html">
+          <div class="input-group mb-3">
+           <span class="input-group-text">@</span>
+           <input class="form-control" type="text" placeholder="your@email.com" />
+          </div>
+          <div class="input-group mb-3">
+           <span class="input-group-text">🔒</span>
+           <input class="form-control" type="password" placeholder="password" />
+          </div>
+          <button type="submit">Login</button>
+         <button type="submit">Create</button>
+        </form>
+      </div>
     </main>
 
     <footer>
-      <hr />
-      <span class="text-reset">Mitch Messerly</span>
-      <br />
-      <a href="https://github.com/M1tchM355/startup.git">GitHub</a>
-    </footer>
+      <div class="container-fluid">
+        <span class="text-reset">Mitch Messerly</span>
+        <a href="https://github.com/M1tchM355/startup.git">GitHub</a>
+      </div>
+      </footer>
   </body>
 </html>

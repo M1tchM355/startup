@@ -16,3 +16,10 @@ footer {
     flex: 0 30px;
 }
 
+h1 {
+    padding-bottom: 100px;
+}
+
+footer a {
+    float: right;
+}
