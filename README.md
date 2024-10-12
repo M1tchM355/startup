@@ -47,3 +47,14 @@ For this deliverable I built out the structure of my application using HTML.
 - **Login** - Input box and submit button for login. User ID is shown after logging in.
 - **DB** - User ID, recipes, rating, and comments represent data pulled from the database.
 - **Websocket** -  Recipes on the community page represent recieps shared by other users in real time.
+
+## CSS Deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+-  **Header, footer, and main content body**
+-  **Navigation elements** - I made the navigation bar formatted nicely on the main pages
+-  **Responsive to window resizing** - The app looks great on all window sizes and devices
+-  **Application elements** - Used good contrast and whitespace/padding on all html pages, added borders to the recipe cards to make them look separate. Also added borders to the popup rating forms.
+-  **Application text content** - Consistent fonts
+-  **Application images** - Styled the stars in the buttons for recipe rating
