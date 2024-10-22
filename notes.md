@@ -15,3 +15,19 @@ How to update with git:
 
 ## CSS
 ![Mock](box-model.png)
+Importing a font: @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+## Javascript
+functions: 
+- ((a,b) => a + b) (a, b are arguments, a+b is the return)
+- const f = (x) => {}
+- function f(x) {}
+- const f = function(x) {}
+
+Including Javascript in html:
+- <script>1+1</script>
+- <script src='main.js' />
+- <div onclick='1+1' />
+- not this: <javascript>1+1</javascript>
+
