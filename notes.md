@@ -16,6 +16,7 @@ How to update with git:
 ## CSS
 ![Mock](html-structure.png)
 ![Mock](css-cheat-sheet.png)
+
 Importing a font: @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 
