@@ -11,3 +11,7 @@ How to update with git:
 - domains are under Route 53
 - go to hosted zones
 - create records for the sub-domains
+
+
+## CSS
+![Mock](box-model.png)
