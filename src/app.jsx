@@ -26,7 +26,13 @@ export default function App() {
         </nav>
       </header>
 
-        <main>App components go here</main>
+      <Routes>
+        <Route path='/' element={<Login />} exact />
+        <Route path='/new' element={<New />} />
+        <Route path='/box' element={<Box />} />
+        <Route path='/community' element={<Community />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
 
         <footer>
           <div className="container-fluid">
@@ -39,3 +45,6 @@ export default function App() {
   );
 }
 
+function NotFound() {
+  return <main className='container-fluid text-center'>404: Return to sender. Address unknown.</main>;
+}
