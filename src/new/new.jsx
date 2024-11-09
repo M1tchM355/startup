@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import './new.css'
 
 export function New() {
-  const [showGenerate, setShowGenerate] = React.useState(true);
+  const [showGenerate, setShowGenerate] = React.useState(true); // pretty sure I always want this to show, but keeping it here in case I change my mind
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);
   const [showPopup, setShowPopup] = React.useState(false);
 
