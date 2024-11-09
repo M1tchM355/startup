@@ -5,6 +5,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { New } from './new/new';
 import { Box } from './box/box';
+import { Recipe } from './recipe/recipe';
 import { Community } from './community/community';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path='/' element={<Login />} exact />
           <Route path='/new' element={<New />} />
           <Route path='/box' element={<Box />} />
+          <Route path='/box/recipe' element={<Recipe />} />
           <Route path='/community' element={<Community />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
