@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 export function Recipe({ title, description, ingredients, directions, reviews, recipeID }) {
   const [showPopup, setShowPopup] = React.useState(false);
-  const [showFullRecipe, setShowFullRecipe] = React.useState(false);
+  //const [showFullRecipe, setShowFullRecipe] = React.useState(false);
 
   const handleIMadeItClick = () => {
     setShowPopup(true);

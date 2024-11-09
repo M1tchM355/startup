@@ -36,33 +36,48 @@ export function Box() {
           reviews={recipe1.reviews}
           recipeID={recipe1.recipeID}
         />
-        <Button variant='primary' onClick={() => navigate('/recipe')}>
+        {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe
-        </Button>
+        </Button> */}
       </section>
       <section className="recipe-card">
-        <h3>Recipe 2</h3>
-        <p>4 stars, 1 comment(s)</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam condimentum ligula vel auctor. Morbi sit amet neque hendrerit, posuere mi in, mollis leo. Aliquam tempor lacus ut dignissim lobortis...</p>
-        <Button variant='primary' onClick={() => navigate('/recipe')}>
+        <Recipe 
+          title={recipe1.title}
+          description={recipe1.description}
+          ingredients={recipe1.ingredients}
+          directions={recipe1.directions}
+          reviews={recipe1.reviews}
+          recipeID={recipe1.recipeID}
+        />
+        {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe
-        </Button>
+        </Button> */}
       </section>
       <section className="recipe-card">
-        <h3>Recipe 3</h3>
-        <p>4 stars, 0 comment(s)</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam condimentum ligula vel auctor. Morbi sit amet neque hendrerit, posuere mi in, mollis leo. Aliquam tempor lacus ut dignissim lobortis...</p>        
-        <Button variant='primary' onClick={() => navigate('/recipe')}>
+        <Recipe 
+          title={recipe1.title}
+          description={recipe1.description}
+          ingredients={recipe1.ingredients}
+          directions={recipe1.directions}
+          reviews={recipe1.reviews}
+          recipeID={recipe1.recipeID}
+        />
+        {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe
-        </Button>
+        </Button> */}
       </section>
       <section className="recipe-card">
-        <h3>Recipe 4</h3>
-        <p>3 stars, 0 comment(s)</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam condimentum ligula vel auctor. Morbi sit amet neque hendrerit, posuere mi in, mollis leo. Aliquam tempor lacus ut dignissim lobortis...</p>        
-        <Button variant='primary' onClick={() => navigate('/recipe')}>
+        <Recipe 
+          title={recipe1.title}
+          description={recipe1.description}
+          ingredients={recipe1.ingredients}
+          directions={recipe1.directions}
+          reviews={recipe1.reviews}
+          recipeID={recipe1.recipeID}
+        />
+        {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe
-        </Button>
+        </Button> */}
       </section>
     </main>
   );

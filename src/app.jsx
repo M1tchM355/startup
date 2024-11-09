@@ -58,7 +58,6 @@ export default function App() {
             }}/>} exact />
           <Route path='/new' element={<New />} />
           <Route path='/box' element={<Box />} />
-          <Route path='/recipe' element={<Recipe />} />
           <Route path='/community' element={<Community />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
