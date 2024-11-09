@@ -5,6 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 export function Box() {
+  const [recipes, setRecipes] = React.useState([]);
+
+  React.useEffect(() => {
+    const recipesText = localStorage.getItem('recipes');
+    if (recipesText) {
+      setRecipes(JSON.parse(recipesText));
+    }
+  })
   return (
     <main>
       <h1>My Recipe Box</h1>

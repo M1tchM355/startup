@@ -2,15 +2,6 @@ import React from 'react';
 import './new.css'
 
 export function New() {
-  const [recipes, setRecipes] = React.useState([]);
-
-  React.useEffect(() => {
-    const recipesText = localStorage.getItem('recipes');
-    if (recipesText) {
-      setRecipes(JSON.parse(recipesText));
-    }
-  })
-
   return (
     <main className="container-fluid">
       <h1>New Recipe</h1>
