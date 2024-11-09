@@ -1,5 +1,6 @@
 import React from 'react';
 import '../box/box.css'
+import { NavLink } from 'react-router-dom'
 
 export function Community() {
   return (

@@ -33,6 +33,7 @@ export default function App() {
           <Route path='/box' element={<Box />} />
           <Route path='/box/recipe' element={<Recipe />} />
           <Route path='/community' element={<Community />} />
+          <Route path='/community/recipe' element={<Recipe />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 
