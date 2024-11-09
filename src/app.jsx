@@ -24,15 +24,15 @@ export default function App() {
             <NavLink to="">Log Out</NavLink>
           </div>
         </nav>
-      </header>
+        </header>
 
-      <Routes>
-        <Route path='/' element={<Login />} exact />
-        <Route path='/new' element={<New />} />
-        <Route path='/box' element={<Box />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Login />} exact />
+          <Route path='/new' element={<New />} />
+          <Route path='/box' element={<Box />} />
+          <Route path='/community' element={<Community />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
 
         <footer>
           <div className="container-fluid">
