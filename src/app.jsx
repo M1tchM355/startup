@@ -7,8 +7,13 @@ import { New } from './new/new';
 import { Box } from './box/box';
 import { Recipe } from './recipe/recipe';
 import { Community } from './community/community';
+import { AuthState } from './login/authState';
 
 export default function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
   return (
     <BrowserRouter>
       <div className='body'>
@@ -16,19 +21,41 @@ export default function App() {
         <nav className="navbar fixed-top">
           <h1 className="navbar-brand">RecipeShare</h1>
           <ul className="navbar-nav">
-            <li className="nav-item"><NavLink className="nav-link" to="new">New Recipe</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="box">Recipe Box</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="community">Discover</NavLink></li>
+            {authState === AuthState.Authenticated && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="new">New Recipe</NavLink>
+              </li>
+            )}
+            {authState === AuthState.Authenticated && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="box">Recipe Box</NavLink>
+              </li>
+            )}
+            {authState === AuthState.Authenticated && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="community">Discover</NavLink>
+              </li>
+            )}
           </ul>
-          <div className="user-info">
-            <span>Welcome User 123456!</span>
-            <NavLink to="">Log Out</NavLink>
-          </div>
+          {authState === AuthState.Authenticated && (
+            <div className="user-info">
+              <span>Welcome User 123456!</span>
+              <NavLink to="">
+                Log Out
+              </NavLink>
+            </div>
+          )}
         </nav>
         </header>
 
         <Routes>
-          <Route path='/' element={<Login />} exact />
+          <Route path='/' element={<Login 
+            username={userName} 
+            authState={authState} 
+            onAuthChange={(userName, authState) => {
+              setAuthState(authState);
+              setUserName(userName);
+            }}/>} exact />
           <Route path='/new' element={<New />} />
           <Route path='/box' element={<Box />} />
           <Route path='/box/recipe' element={<Recipe />} />
