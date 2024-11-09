@@ -15,8 +15,8 @@ How to update with git:
 
 
 ## CSS
-![Mock](html-structure.png)
-![Mock](css-cheat-sheet.png)
+![Mock](notes/html-structure.png)
+![Mock](notes/css-cheat-sheet.png)
 
 Importing a font: @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
@@ -35,15 +35,15 @@ Including Javascript in html:
 - not this: <javascript>1+1</javascript>
 
 
-![Mock](html-example.png)
-![Mock](JSON.png)
-![Mock](Promise-example.png)
-![Mock](async-example.png)
-![Mock](js-example.png)
-![Mock](js-ex-2.png)
-![Mock](switch.png)
-![Mock](objects.png)
-![Mock](domain.png)
-![Mock](ports.png)
+![Mock](notes/html-example.png)
+![Mock](notes/JSON.png)
+![Mock](notes/Promise-example.png)
+![Mock](notes/async-example.png)
+![Mock](notes/js-example.png)
+![Mock](notes/js-ex-2.png)
+![Mock](notes/switch.png)
+![Mock](notes/objects.png)
+![Mock](notes/domain.png)
+![Mock](notes/ports.png)
 
 
