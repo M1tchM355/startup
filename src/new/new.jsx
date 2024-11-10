@@ -5,8 +5,14 @@ import { Recipe } from '../recipe/recipe.jsx';
 
 export function New() {
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);
-  const [recipeData, setRecipeData] = React.useState([]);
+  //const [recipeData, setRecipeData] = React.useState([]);
   const [newRecipe, setNewRecipe] = React.useState([]);
+
+  React.useEffect(() => {
+    if (!localStorage.getItem("recipes")) {
+      localStorage.setItem("recipes", JSON.stringify([]));
+    }
+  }, []);
 
   //this is a helper function to generate random text for the recipes. this will change once I implement the AI API
   const generateRandomText = () => {
@@ -28,12 +34,15 @@ export function New() {
   };
 
   const handleGenerateClick = (e) => {
-    e.preventDefault();
     setShowNewRecipe(true);
-    setNewRecipe(generateRandomText());
-    setRecipeData([...recipeData, newRecipe]);
-    const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
-    localStorage.setItem("recipes", JSON.stringify([...storedRecipes, newRecipe]));
+    const newestRecipe = generateRandomText();
+    setNewRecipe(newestRecipe);
+    //setRecipeData([...recipeData, newRecipe]);
+    const storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+      if (storedRecipes.length > 0)
+        localStorage.setItem("recipes", JSON.stringify([...storedRecipes, newestRecipe]));
+      else if (newestRecipe)
+        localStorage.setItem('recipes', JSON.stringify([newestRecipe]))
   };
 
   return (
@@ -49,7 +58,7 @@ export function New() {
               <p>Any other specifications?</p>
               <input type="textarea" id="specifications" placeholder="Breakfast, snack, healthy, quick, etc" />
             </div>
-            <button type="submit" onClick={handleGenerateClick}>Generate!</button>
+            <button type="button" onClick={handleGenerateClick}>Generate!</button>
           </form>
         </section>
       {showNewRecipe && (

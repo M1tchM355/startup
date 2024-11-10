@@ -9,9 +9,9 @@ export function Box() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    const recipesText = localStorage.getItem('recipes');
-    if (recipesText) {
-      setRecipes(JSON.parse(recipesText));
+    const storedRecipes = localStorage.getItem('recipes');
+    if (storedRecipes) {
+      setRecipes(JSON.parse(storedRecipes));
     }
   })
 
@@ -27,6 +27,19 @@ export function Box() {
   return (
     <main>
       <h1>My Recipe Box</h1>
+      <div className='recipe-list'>
+        {recipes.map((recipe,index) => (
+          <Recipe
+            recipeID={index}
+            title={recipe.title}
+            desription={recipe.description}
+            ingredients={recipe.ingredients}
+            reviews={recipe.reviews}
+            />
+        ))}
+      </div>
+
+
       <section className="recipe-card">
         <Recipe 
           title={recipe1.title}
