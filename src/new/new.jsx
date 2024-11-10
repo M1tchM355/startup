@@ -40,7 +40,7 @@ export function New() {
     //setRecipeData([...recipeData, newRecipe]);
     const storedRecipes = JSON.parse(localStorage.getItem("recipes"));
       if (storedRecipes.length > 0)
-        localStorage.setItem("recipes", JSON.stringify([...storedRecipes, newestRecipe]));
+        localStorage.setItem("recipes", JSON.stringify([newestRecipe, ...storedRecipes]));
       else if (newestRecipe)
         localStorage.setItem('recipes', JSON.stringify([newestRecipe]))
   };

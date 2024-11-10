@@ -11,7 +11,7 @@ export function Recipe({ title, description, ingredients, directions, reviews, r
 
   return (
     <main>
-      <section className='recipe'>
+      <section className='recipe-card'>
         <h1 className='recipe-title'>{title}</h1>
         <p className='recipe-description'>{description}</p>
         <h3>Ingredients:</h3>
