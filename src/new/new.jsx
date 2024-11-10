@@ -9,8 +9,11 @@ export function New() {
   const [newRecipe, setNewRecipe] = React.useState([]);
 
   React.useEffect(() => {
-    if (!localStorage.getItem("recipes")) {
-      localStorage.setItem("recipes", JSON.stringify([]));
+    if (!localStorage.getItem("personalRecipes")) {
+      localStorage.setItem("personalRecipes", JSON.stringify([]));
+    }
+    if (!localStorage.getItem("communityRecipes")) {
+      localStorage.setItem("communityRecipes", JSON.stringify([]));
     }
   }, []);
 
@@ -38,11 +41,11 @@ export function New() {
     const newestRecipe = generateRandomText();
     setNewRecipe(newestRecipe);
     //setRecipeData([...recipeData, newRecipe]);
-    const storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+    const storedRecipes = JSON.parse(localStorage.getItem('communityRecipes'));
       if (storedRecipes.length > 0)
-        localStorage.setItem("recipes", JSON.stringify([newestRecipe, ...storedRecipes]));
+        localStorage.setItem('communityRecipes', JSON.stringify([newestRecipe, ...storedRecipes]));
       else if (newestRecipe)
-        localStorage.setItem('recipes', JSON.stringify([newestRecipe]))
+        localStorage.setItem('communityRecipes', JSON.stringify([newestRecipe]))
   };
 
   return (
@@ -69,8 +72,8 @@ export function New() {
           description={newRecipe.description}
           ingredients={newRecipe.ingredients}
           directions={newRecipe.directions}
-          reviews={newRecipe.reviews}
           recipeID={newRecipe.recipeID}
+          recipe={newRecipe}
         />
         {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe

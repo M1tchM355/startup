@@ -1,13 +1,16 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-export function Recipe({ title, description, ingredients, directions, reviews, recipeID }) {
-  const [showPopup, setShowPopup] = React.useState(false);
-  //const [showFullRecipe, setShowFullRecipe] = React.useState(false);
+export function Recipe({ title, description, ingredients, directions, recipeID, recipe }) {
 
-  const handleIMadeItClick = () => {
-    setShowPopup(true);
+  const handleAddToPersonal = () => {
+    const storedRecipes = JSON.parse(localStorage.getItem('personalRecipes'));
+      if (storedRecipes.length > 0)
+        localStorage.setItem('personalRecipes', JSON.stringify([recipe, ...storedRecipes]));
+      else
+        localStorage.setItem('personalRecipes', JSON.stringify([recipe]))
   };
+
 
   return (
     <main>
@@ -21,45 +24,9 @@ export function Recipe({ title, description, ingredients, directions, reviews, r
           ))}
         </ul>
         <h3>Directions:</h3>
-        <p className='recipe-direction'>{directions}</p>
-        <p className='recipe-reviews'>{reviews}</p>
-        <button type="button" onClick={handleIMadeItClick}>I made it!</button>
+        <p className='recipe-directions'>{directions}</p>
+        <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
       </section>
-      {showPopup && (
-        <section className="popup">
-          <form method="get" action="box">
-            <div className="stars">
-              <p>Rating:</p>
-              <Button variant='primary'>
-                <img src='star.png' width="50" />
-              </Button>
-              <Button variant='primary'>
-                <img src='star.png' width="50" />
-              </Button>
-              <Button variant='primary'>
-                <img src='star.png' width="50" />
-              </Button>
-              <Button variant='primary'>
-                <img src='star.png' width="50" />
-              </Button>
-              <Button variant='primary'>
-                <img src='star.png' width="50" />
-              </Button>
-            </div>
-            <div>
-              <label htmlFor="comments">Comments: (optional)</label>
-              <p><input type="textarea" id="comments" placeholder="Comments" /></p>
-            </div>
-            <div>
-              <label htmlFor="save">Save to personal recipe box? </label>
-              <input type="checkbox" id="save" />
-            </div>
-            <div>
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-        </section>
-      )}
     </main>
   );
 }

@@ -7,7 +7,7 @@ export function Community() {
   const [recipes, setRecipes] = React.useState([]);
   
   React.useEffect(() => {
-    const storedRecipes = localStorage.getItem('recipes');
+    const storedRecipes = localStorage.getItem('communityRecipes');
     if (storedRecipes) {
       setRecipes(JSON.parse(storedRecipes));
     }
@@ -23,7 +23,8 @@ export function Community() {
             title={recipe.title}
             desription={recipe.description}
             ingredients={recipe.ingredients}
-            reviews={recipe.reviews}
+            directions={recipe.directions}
+            recipe={recipe}
             />
         ))}
       </div>

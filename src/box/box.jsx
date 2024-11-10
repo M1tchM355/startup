@@ -9,7 +9,7 @@ export function Box() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    const storedRecipes = localStorage.getItem('recipes');
+    const storedRecipes = localStorage.getItem('personalRecipes');
     if (storedRecipes) {
       setRecipes(JSON.parse(storedRecipes));
     }
@@ -26,7 +26,8 @@ export function Box() {
             title={recipe.title}
             desription={recipe.description}
             ingredients={recipe.ingredients}
-            reviews={recipe.reviews}
+            directions={recipe.directions}
+            recipe={recipe}
             />
         ))}
       </div>
