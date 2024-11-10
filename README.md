@@ -58,3 +58,17 @@ For this deliverable I properly styled the application into its final appearance
 -  **Application elements** - Used good contrast and whitespace/padding on all html pages, added borders to the recipe cards to make them look separate. Also added borders to the popup rating forms.
 -  **Application text content** - Consistent fonts
 -  **Application images** - Styled the stars in the buttons for recipe rating
+
+## React Deliverable
+
+For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
+
+-  **Bundled and transpiled** - done!
+-  **Components** - Login, generating recipes, and viewing personal and community recipes are all components with mocks for WebSocket.
+  -  **login** - When you enter a username and password and press login or create it takes you to the welcome page. If you click on the create new recipe button it takes you to the new recipe page.
+  -  **public api** - When you input ingredients and notes and press generate, it will call an AI api to generate the recipe. Right now it just has a few random recipes it chooses from.
+  -  **database** - When you generate a recipe, it adds it to the community and personal recipe boxes. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
+  -  **WebSocket** - Community recipes are just stored in the local storage for now. This will be replaced with WebSocket messages later.
+  -  **application logic** - Recipes are only added to the personal recipe box if the user chooses to.
+-  **Router** - Routing between login, recipe, new, box, and community components.
+-  **Hooks** - I use hooks to keep track of the current new recipe and the lists of recipes in each box (personal and community).
