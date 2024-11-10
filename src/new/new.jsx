@@ -72,7 +72,6 @@ export function New() {
           description={newRecipe.description}
           ingredients={newRecipe.ingredients}
           directions={newRecipe.directions}
-          recipeID={newRecipe.recipeID}
           recipe={newRecipe}
         />
         {/* <Button variant='primary' onClick={() => navigate('/recipe')}>

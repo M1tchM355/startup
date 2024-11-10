@@ -1,7 +1,6 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 
-export function Recipe({ title, description, ingredients, directions, recipeID, recipe }) {
+export function Recipe({ title, description, ingredients, directions, recipe }) {
 
   const handleAddToPersonal = () => {
     const storedRecipes = JSON.parse(localStorage.getItem('personalRecipes'));

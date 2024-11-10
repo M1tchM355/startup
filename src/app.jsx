@@ -19,6 +19,7 @@ export default function App() {
       <div className='body'>
         <header className="container-fluid">
         <nav className="navbar fixed-top">
+        <img src='RecipeShareLogo.png' alt='RecipeShareLogo' width='100px'/>
           <h1 className="navbar-brand">RecipeShare</h1>
           <ul className="navbar-nav">
             {authState === AuthState.Authenticated && (
@@ -39,7 +40,7 @@ export default function App() {
           </ul>
           {authState === AuthState.Authenticated && (
             <div className="user-info">
-              <span>Welcome User 123456!</span>
+              <span>Welcome {localStorage.getItem('userName')}!</span>
               <NavLink to="">
                 Log Out
               </NavLink>

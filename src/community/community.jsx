@@ -11,7 +11,7 @@ export function Community() {
     if (storedRecipes) {
       setRecipes(JSON.parse(storedRecipes));
     }
-  })
+  }, [])
 
   return (
     <main>
@@ -19,7 +19,7 @@ export function Community() {
       <div className='recipe-list'>
         {recipes.map((recipe,index) => (
           <Recipe
-            recipeID={index}
+            key={index}
             title={recipe.title}
             desription={recipe.description}
             ingredients={recipe.ingredients}

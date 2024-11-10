@@ -1,19 +1,16 @@
 import React from 'react';
 import './box.css'
-import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import { Recipe } from '../recipe/recipe.jsx';
 
 export function Box() {
   const [recipes, setRecipes] = React.useState([]);
-  const navigate = useNavigate();
 
   React.useEffect(() => {
     const storedRecipes = localStorage.getItem('personalRecipes');
     if (storedRecipes) {
       setRecipes(JSON.parse(storedRecipes));
     }
-  })
+  }, [])
 
 
   return (
@@ -22,7 +19,7 @@ export function Box() {
       <div className='recipe-list'>
         {recipes.map((recipe,index) => (
           <Recipe
-            recipeID={index}
+            key={index}
             title={recipe.title}
             desription={recipe.description}
             ingredients={recipe.ingredients}
