@@ -3,8 +3,7 @@ const uuid = require('uuid');
 const app = express();
 
 let users = {};
-let userBox = {};
-let communityBox = {};
+let communityBox = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -25,7 +24,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     if (user) {
         res.status(409).send({ msg: 'Existing user' });
     } else {
-        const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
+        const user = { email: req.body.email, password: req.body.password, token: uuid.v4(), recipes: [] };
         users[user.email] = user;
 
         res.send({ token: user.token });
@@ -52,6 +51,42 @@ apiRouter.delete('/auth/logout', (req, res) => {
         delete user.token;
     }
     res.status(204).end();
+});
+
+// GetCommunityRecipes
+apiRouter.get('/community', (_req, res) => {
+    res.send(communityBox);
+});
+
+// SubmitToCommunityBox
+apiRouter.post('/communityBox', (req, res) => {
+    communityBox = communityBox.unshift(req.body);
+    res.send(communityBox);
+});
+
+// GetPersonalRecipes
+apiRouter.get('/box', (req, res) => {
+    const user = Object.values(users).find((u) => u.token === req.body.token);
+    if (user) {
+        res.send(user.recipes);
+    }
+});
+
+//AddToPersonalBox
+apiRouter.post('/personalBox', (req, res) => {
+    const user = Object.values(users).find((u) => u.token === req.body.token);
+    if (user) {
+        found = false;
+        for (let i in user.recipes) {
+            if (req.body === i) {
+                found = true;
+            }
+        }
+        if (!found) {
+            user.recipes.unshift(req.body);
+        }
+        res.send(user.recipes);
+    }
 });
 
 // Return the application's default page if the path is unknown
