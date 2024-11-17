@@ -6,8 +6,28 @@ import { Recipe } from '../recipe/recipe.jsx';
 export function New() {
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);
   //const [recipeData, setRecipeData] = React.useState([]);
-  const [newRecipe, setNewRecipe] = React.useState([]);
+  const [newRecipe, setNewRecipe] = React.useState('');
 
+  const getRecipe = async (ingredients, specifications) => {
+    const apiReturn = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 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'
+      },
+      body: JSON.stringify({
+        "model": "llama3-8b-8192",
+        "messages": [{
+            "role": "user",
+            "content": "You are a world-class AI recipe-creating assistant. Your job is to take the ingredients and instructions given to you and return a delicious recipe using the ingredients given. Please do not include a response other than the recipe. If there are no ingredients or special instructions, just make a random recipe. Not all ingredients need to be used, and you can include some small ingredients like spices even if they are provided. Include a title for the dish, a list of ingredients and measurements, and detailed step-by-step instructions for cooking. Remember to keep the recipe simple and straightforward. Here is the list of ingredients:" + ingredients + ". And here are the special instructions:" + specifications
+        }]
+      })
+    });
+    const x = await apiReturn.json();
+    const recipe = x.choices[0].message.content;
+    return(recipe);
+  }
+  
 
   //this is a helper function to generate random text for the recipes. this will change once I implement the AI API
   const generateRandomText = () => {
@@ -28,9 +48,11 @@ export function New() {
     return { title: randomTitle, description: randomDescription, ingredients: randomIngredients, directions: randomDirections, reviews: randomReviews, recipeID: randomID};
   };
 
-  const handleGenerateClick = (e) => {
+  const handleGenerateClick = async (e) => {
+    const ingredients = document.getElementById('ingredients').value
+    const specifications = document.getElementById('specifications').value
     setShowNewRecipe(true);
-    const newestRecipe = generateRandomText();
+    const newestRecipe = await getRecipe(ingredients, specifications);
     setNewRecipe(newestRecipe);
     //setRecipeData([...recipeData, newRecipe]);
     fetch('/api/community', {
@@ -60,10 +82,6 @@ export function New() {
         <section className='new-recipe'>
           <section className="recipe-card">
         <Recipe 
-          title={newRecipe.title}
-          description={newRecipe.description}
-          ingredients={newRecipe.ingredients}
-          directions={newRecipe.directions}
           recipe={newRecipe}
         />
         {/* <Button variant='primary' onClick={() => navigate('/recipe')}>

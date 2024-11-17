@@ -21,10 +21,6 @@ export function Community() {
         {recipes.map((recipe,index) => (
           <Recipe
             key={index}
-            title={recipe.title}
-            desription={recipe.description}
-            ingredients={recipe.ingredients}
-            directions={recipe.directions}
             recipe={recipe}
             />
         ))}

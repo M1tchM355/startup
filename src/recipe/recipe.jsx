@@ -1,11 +1,11 @@
 import React from 'react';
 
-export function Recipe({ title, description, ingredients, directions, recipe }) {
+export function Recipe({ recipe }) {
 
   const handleAddToPersonal = () => {
     fetch('/api/box?userName='+localStorage.getItem('userName'), {
       method: 'post',
-      body: JSON.stringify(recipe),
+      body: JSON.stringify({'recipe': recipe}),
       headers: { 'content-type': 'application/json' }
     })
   };
@@ -14,16 +14,7 @@ export function Recipe({ title, description, ingredients, directions, recipe }) 
   return (
     <main>
       <section className='recipe-card'>
-        <h1 className='recipe-title'>{title}</h1>
-        <p className='recipe-description'>{description}</p>
-        <h3>Ingredients:</h3>
-        <ul className="recipe-card-ingredients">
-          {ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
-        <h3>Directions:</h3>
-        <p className='recipe-directions'>{directions}</p>
+        <p class='recipe'>{recipe}</p>
         <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
       </section>
     </main>
