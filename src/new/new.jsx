@@ -8,14 +8,6 @@ export function New() {
   //const [recipeData, setRecipeData] = React.useState([]);
   const [newRecipe, setNewRecipe] = React.useState([]);
 
-  React.useEffect(() => {
-    if (!localStorage.getItem("personalRecipes")) {
-      localStorage.setItem("personalRecipes", JSON.stringify([]));
-    }
-    if (!localStorage.getItem("communityRecipes")) {
-      localStorage.setItem("communityRecipes", JSON.stringify([]));
-    }
-  }, []);
 
   //this is a helper function to generate random text for the recipes. this will change once I implement the AI API
   const generateRandomText = () => {
@@ -41,6 +33,12 @@ export function New() {
     const newestRecipe = generateRandomText();
     setNewRecipe(newestRecipe);
     //setRecipeData([...recipeData, newRecipe]);
+    fetch('/api/community', {
+      method: 'post',
+      body: JSON.stringify(newestRecipe),
+      headers: { 'content-type': 'application/json' }
+    })
+
     const storedRecipes = JSON.parse(localStorage.getItem('communityRecipes'));
       if (storedRecipes.length > 0)
         localStorage.setItem('communityRecipes', JSON.stringify([newestRecipe, ...storedRecipes]));
