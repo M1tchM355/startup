@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Recipe({ title, description, ingredients, directions, recipe }) {
+export function Recipe({ title, description, ingredients, directions, recipe, userName }) {
 
   const handleAddToPersonal = () => {
-    fetch('/api/box', {
+    fetch('/api/box?userName='+userName, {
       method: 'post',
       body: JSON.stringify(recipe),
       headers: { 'content-type': 'application/json' }

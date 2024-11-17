@@ -38,12 +38,6 @@ export function New() {
       body: JSON.stringify(newestRecipe),
       headers: { 'content-type': 'application/json' }
     })
-
-    const storedRecipes = JSON.parse(localStorage.getItem('communityRecipes'));
-      if (storedRecipes.length > 0)
-        localStorage.setItem('communityRecipes', JSON.stringify([newestRecipe, ...storedRecipes]));
-      else if (newestRecipe)
-        localStorage.setItem('communityRecipes', JSON.stringify([newestRecipe]))
   };
 
   return (

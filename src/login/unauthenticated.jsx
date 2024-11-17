@@ -19,7 +19,7 @@ export function Unauthenticated(props) {
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
       method: 'post',
-      body: JSON.stringify({ email: userName, password: password }),
+      body: JSON.stringify({ userName: userName, password: password }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -39,7 +39,7 @@ export function Unauthenticated(props) {
         <h4>Log in or create an account to get started:</h4>  
         <div className='input-group mb-3'>
           <span className='input-group-text'>@</span>
-          <input className='form-control' type='text' value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='your@email.com' />
+          <input className='form-control' type='text' value={userName} onChange={(e) => setUserName(e.target.value)} placeholder='username' />
         </div>
         <div className='input-group mb-3'>
           <span className='input-group-text'>🔒</span>
