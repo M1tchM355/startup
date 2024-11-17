@@ -6,7 +6,7 @@ export function Box() {
   const [recipes, setRecipes] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('/api/box')
+    fetch('/api/box?userName='+localStorage.getItem('userName'))
       .then((response) => response.json())
       .then((recipes) => {
         setRecipes(recipes);
