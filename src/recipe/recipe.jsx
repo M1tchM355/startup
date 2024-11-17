@@ -3,11 +3,11 @@ import React from 'react';
 export function Recipe({ title, description, ingredients, directions, recipe }) {
 
   const handleAddToPersonal = () => {
-    const storedRecipes = JSON.parse(localStorage.getItem('personalRecipes'));
-      if (storedRecipes.length > 0)
-        localStorage.setItem('personalRecipes', JSON.stringify([recipe, ...storedRecipes]));
-      else
-        localStorage.setItem('personalRecipes', JSON.stringify([recipe]))
+    fetch('/api/personalBox', {
+      method: 'post',
+      body: JSON.stringify(recipe),
+      headers: { 'content-type': 'application/json' }
+    })
   };
 
 

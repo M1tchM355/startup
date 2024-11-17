@@ -78,7 +78,7 @@ apiRouter.post('/personalBox', (req, res) => {
     if (user) {
         found = false;
         for (let i in user.recipes) {
-            if (req.body === i) {
+            if (req.body.recipe === i) {
                 found = true;
             }
         }
