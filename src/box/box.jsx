@@ -6,10 +6,11 @@ export function Box() {
   const [recipes, setRecipes] = React.useState([]);
 
   React.useEffect(() => {
-    const storedRecipes = localStorage.getItem('personalRecipes');
-    if (storedRecipes) {
-      setRecipes(JSON.parse(storedRecipes));
-    }
+    fetch('/api/box')
+      .then((response) => response.json())
+      .then((recipes) => {
+        setRecipes(recipes);
+      })
   }, [])
 
 
