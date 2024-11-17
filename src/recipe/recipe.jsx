@@ -3,7 +3,7 @@ import React from 'react';
 export function Recipe({ title, description, ingredients, directions, recipe }) {
 
   const handleAddToPersonal = () => {
-    fetch('/api/personalBox', {
+    fetch('/api/box', {
       method: 'post',
       body: JSON.stringify(recipe),
       headers: { 'content-type': 'application/json' }

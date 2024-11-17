@@ -5,12 +5,13 @@ import { Recipe } from '../recipe/recipe.jsx';
 
 export function Community() {
   const [recipes, setRecipes] = React.useState([]);
-  
+
   React.useEffect(() => {
-    const storedRecipes = localStorage.getItem('communityRecipes');
-    if (storedRecipes) {
-      setRecipes(JSON.parse(storedRecipes));
-    }
+    fetch('/api/community')
+      .then((response) => response.json())
+      .then((recipes) => {
+        setRecipes(recipes);
+      })
   }, [])
 
   return (

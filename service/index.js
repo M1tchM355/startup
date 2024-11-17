@@ -59,7 +59,7 @@ apiRouter.get('/community', (_req, res) => {
 });
 
 // SubmitToCommunityBox
-apiRouter.post('/communityBox', (req, res) => {
+apiRouter.post('/community', (req, res) => {
     communityBox = communityBox.unshift(req.body);
     res.send(communityBox);
 });
@@ -73,7 +73,7 @@ apiRouter.get('/box', (req, res) => {
 });
 
 //AddToPersonalBox
-apiRouter.post('/personalBox', (req, res) => {
+apiRouter.post('/box', (req, res) => {
     const user = Object.values(users).find((u) => u.token === req.body.token);
     if (user) {
         found = false;
