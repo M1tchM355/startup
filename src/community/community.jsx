@@ -11,7 +11,7 @@ export function Community() {
       .then((response) => response.json())
       .then((recipes) => {
         setRecipes(recipes);
-      })
+      });
   }, [])
 
   return (

@@ -14,7 +14,7 @@ export function Recipe({ recipe }) {
   return (
     <main>
       <section className='recipe-card'>
-        <p class='recipe'>{recipe}</p>
+        <p className='recipe'>{JSON.stringify(recipe.recipe)}</p>
         <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
       </section>
     </main>

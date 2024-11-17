@@ -57,7 +57,7 @@ export function New() {
     //setRecipeData([...recipeData, newRecipe]);
     fetch('/api/community', {
       method: 'post',
-      body: JSON.stringify(newestRecipe),
+      body: JSON.stringify({recipe: newestRecipe}),
       headers: { 'content-type': 'application/json' }
     })
   };
