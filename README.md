@@ -82,3 +82,14 @@ For this deliverable I added backend endpoints that gets user personal recipe bo
 -  **Calls to third party endpoints** - Calls to groqcloud api to create new recipes
 -  **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for recipe boxes.
 -  **Frontend calls service endpoints** - I did this using the fetch function. The recipe component calls the post to personal box endpoint, the new component calls the post to community box endpoint, and box and community components call the get personal box and get community box endpoints respectively
+
+## DB/Login deliverable
+
+For this deliverable I save every recipe in the database under the community recipes and a list of personal recipes for each user.
+
+- **MongoDB Atlas database created** - done!
+- **Stores data in MongoDB** - done!
+- **User registration** - Creates a new account in the database.
+- **Existing user authentication and logout** - Authenticates user in the database.
+- **Use MongoDB to store credentials** - Stores both user and their personal recipe box.
+- **Restricts functionality** - You cannot create new recipes or access anything until you have logged in
