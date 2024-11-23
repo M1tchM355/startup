@@ -53,7 +53,9 @@ async function addCommunityRecipe(recipe) {
 }
 
 function getCommunityRecipes() {
-  return recipeCollection.toArray();
+  //const collection = db.collection('recipeCollection');
+  const recipes = recipeCollection.find().toArray();
+  return recipes;
 }
 
 module.exports = {
