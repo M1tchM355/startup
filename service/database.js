@@ -18,8 +18,8 @@ const recipeCollection = db.collection('communityRecipes');
   process.exit(1);
 });
 
-function getUser(userName) {
-  return userCollection.findOne({ userName: userName });
+function getUser(username) {
+  return userCollection.findOne({ userName: username });
 }
 
 function getUserByToken(token) {

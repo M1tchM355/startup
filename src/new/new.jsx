@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './new.css'
 import { Recipe } from '../recipe/recipe.jsx';
-const config = require('./apiConfig.json');
+import config from './apiConfig.json';
 
 export function New() {
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);

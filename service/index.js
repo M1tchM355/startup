@@ -114,6 +114,15 @@ app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
 
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+}
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
