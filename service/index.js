@@ -64,14 +64,27 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
+secureApiRouter.use(async (req, res, next) => {
+    const authToken = req.cookies[authCookieName];
+    const user = await DB.getUserByToken(authToken);
+    if (user) {
+      next();
+    } else {
+      res.status(401).send({ msg: 'Unauthorized' });
+    }
+});
+
 // GetCommunityRecipes
-apiRouter.get('/community', (_req, res) => {
+secureApiRouter.get('/community', async (_req, res) => {
+    const communityBox = await DB.getCommunityRecipes();
     res.send(communityBox);
 });
 
 // SubmitToCommunityBox
-apiRouter.post('/community', (req, res) => {
-    communityBox.unshift(req.body);
+secureApiRouter.post('/community', async (req, res) => {
+    const recipe = { ..req.body, ip: req.ip };
+    await DB.addCommunityRecipe(recipe);
+    const communityBox = await DB.getCommunityRecipes();
     res.send(communityBox);
 });
 
