@@ -39,29 +39,30 @@ apiRouter.post('/auth/create', async (req, res) => {
         id: user._id,
       });
     }
-  });
+});
 
-// GetAuth login an existing user
+// GetAuth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
-    const user = users[req.body.userName];
+    const user = await DB.getUser(req.body.email);
     if (user) {
-        if (req.body.password === user.password) {
-            user.token = uuid.v4();
-            res.send({ token: user.token });
-            return;
-        }
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        setAuthCookie(res, user.token);
+        res.send({ id: user._id });
+        return;
+      }
     }
     res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// DeleteAuth logout a user
-apiRouter.delete('/auth/logout', (req, res) => {
-    const user = Object.values(users).find((u) => u.token === req.body.token);
-    if (user) {
-        delete user.token;
-    }
+// DeleteAuth token if stored in cookie
+apiRouter.delete('/auth/logout', (_req, res) => {
+    res.clearCookie(authCookieName);
     res.status(204).end();
 });
+
+// secureApiRouter verifies credentials for endpoints
+const secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
 
 // GetCommunityRecipes
 apiRouter.get('/community', (_req, res) => {
