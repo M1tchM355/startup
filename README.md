@@ -72,3 +72,13 @@ For this deliverable I used JavaScript and React so that the application complet
   -  **application logic** - Recipes are only added to the personal recipe box if the user chooses to.
 -  **Router** - Routing between login, recipe, new, box, and community components.
 -  **Hooks** - I use hooks to keep track of the current new recipe and the lists of recipes in each box (personal and community).
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that gets user personal recipe boxes and the community boxes and posts recipes to both.
+
+-  **Node.js/Express HTTP service** - done!
+-  **Static middleware for frontend** - done!
+-  **Calls to third party endpoints** - Calls to groqcloud api to create new recipes
+-  **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for recipe boxes.
+-  **Frontend calls service endpoints** - I did this using the fetch function. The recipe component calls the post to personal box endpoint, the new component calls the post to community box endpoint, and box and community components call the get personal box and get community box endpoints respectively
