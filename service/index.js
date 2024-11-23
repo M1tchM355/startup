@@ -27,10 +27,10 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
-    if (await DB.getUser(req.body.email)) {
+    if (await DB.getUser(req.body.userName)) {
       res.status(409).send({ msg: 'Existing user' });
     } else {
-      const user = await DB.createUser(req.body.email, req.body.password);
+      const user = await DB.createUser(req.body.userName, req.body.password);
   
       // Set the cookie
       setAuthCookie(res, user.token);
@@ -43,7 +43,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 
 // GetAuth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
-    const user = await DB.getUser(req.body.email);
+    const user = await DB.getUser(req.body.userName);
     if (user) {
       if (await bcrypt.compare(req.body.password, user.password)) {
         setAuthCookie(res, user.token);
@@ -89,7 +89,7 @@ secureApiRouter.post('/community', async (req, res) => {
 });
 
 // GetPersonalRecipes
-secureApiRouter.get('/box', async (_req, res) => {
+secureApiRouter.get('/box', async (req, res) => {
     const authToken = req.cookies[authCookieName];
     const user = await DB.getUserByToken(authToken);
     res.send(user.recipes);
@@ -97,19 +97,17 @@ secureApiRouter.get('/box', async (_req, res) => {
 
 //AddToPersonalBox
 secureApiRouter.post('/box', async (req, res) => {
-    const user = Object.values(users).find((u) => u.userName === req.query.userName);
-    if (user) {
-        found = false;
-        for (let i in user.recipes) {
-            if (req.body.recipe === i) {
-                found = true;
-            }
+    const user = DB.getUser(req.query.userName);
+    found = false;
+    for (let rec in user.recipes) {
+        if (req.body.recipe === rec) {
+            found = true;
         }
-        if (!found) {
-            user.recipes.unshift(req.body);
-        }
-        res.send(user.recipes);
     }
+    if (!found) {
+        await DB.addPersonalRecipe(user.token, req.body.recipe);
+    }
+    res.send(user.recipes);
 });
 
 // Return the application's default page if the path is unknown
