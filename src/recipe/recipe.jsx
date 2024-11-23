@@ -4,7 +4,7 @@ export function Recipe({ recipe }) {
   //const [inPersonalBox, setInPersonalBox] = React.useState(false);
   const handleAddToPersonal = () => {
     //setInPersonalBox(true);
-    fetch('/api/personalBox?userName='+localStorage.getItem('userName'), {
+    fetch('/api/personalBox/'+localStorage.getItem('userName'), {
       method: 'post',
       body: JSON.stringify({'recipe': recipe}),
       headers: { 'content-type': 'application/json' }
@@ -15,7 +15,7 @@ export function Recipe({ recipe }) {
 return (
   <main>
     <section className='recipe-card'>
-      <p className='recipe'>{JSON.stringify(recipe.recipe)}</p>
+      <p className='recipe'>{recipe}</p>
       <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
     </section>
   </main>
