@@ -21,7 +21,7 @@ export function New() {
         "model": "llama3-8b-8192",
         "messages": [{
             "role": "user",
-            "content": "You are a world-class AI recipe-creating assistant. Your job is to take the ingredients and instructions given to you and return a delicious recipe using the ingredients given. Please do not include a response other than the recipe. If there are no ingredients or special instructions, just make a random recipe. Not all ingredients need to be used, and you can include some small ingredients like spices even if they are provided. Include a title for the dish, a list of ingredients and measurements, and detailed step-by-step instructions for cooking. Remember to keep the recipe simple and straightforward. Here is the list of ingredients:" + ingredients + ". And here are the special instructions:" + specifications
+            "content": "You are a world-class AI recipe-creating assistant. Your job is to take the ingredients and instructions given to you and return a delicious recipe using the ingredients given. Please do not include a response other than the recipe. If there are no ingredients or special instructions given to you, just return a random recipe. Not all ingredients need to be used, and you can include some small ingredients like spices even if they are not provided. Include a title for the dish, number of servings, a list of ingredients and measurements, and detailed step-by-step instructions for cooking. Remember to keep the recipe simple and straightforward. Here is the list of ingredients:" + ingredients + ". And here are the special instructions:" + specifications
         }]
       })
     });
@@ -33,10 +33,10 @@ export function New() {
   const handleGenerateClick = async (e) => {
     const ingredients = document.getElementById('ingredients').value
     const specifications = document.getElementById('specifications').value
-    setShowNewRecipe(true);
     const newestRecipe = await getRecipe(ingredients, specifications);
     setNewRecipe(newestRecipe);
-    //setRecipeData([...recipeData, newRecipe]);
+    //console.log("New Recipe Set:", newestRecipe);
+    setShowNewRecipe(true);
     fetch('/api/community', {
       method: 'post',
       body: JSON.stringify({recipe: newestRecipe}),
@@ -61,15 +61,14 @@ export function New() {
           </form>
         </section>
       {showNewRecipe && (
-        <section className='new-recipe'>
-          <section className="recipe-card">
-        <Recipe 
+        <section className="recipe-card">
+          <p>{newRecipe}</p>
+        {/* <Recipe 
           recipe={newRecipe}
-        />
+        /> */}
         {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
           See full recipe
         </Button> */}
-          </section>
         </section>
       )}
     </main>

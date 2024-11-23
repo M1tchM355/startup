@@ -89,18 +89,18 @@ secureApiRouter.post('/community', async (req, res) => {
 });
 
 // GetPersonalRecipes
-secureApiRouter.get('/box', async (req, res) => {
+secureApiRouter.get('/personalBox', async (req, res) => {
     const user = DB.getUser(req.query.userName);
     res.send(user.recipes);
 });
 
 //AddToPersonalBox
-secureApiRouter.post('/box', async (req, res) => {
+secureApiRouter.post('/personalBox', async (req, res) => {
     const user = DB.getUser(req.query.userName);
     found = false;
     for (let rec in user.recipes) {
         if (req.body.recipe === rec) {
-            found = true;
+            //found = true;
         }
     }
     if (!found) {
