@@ -90,8 +90,7 @@ secureApiRouter.post('/community', async (req, res) => {
 
 // GetPersonalRecipes
 secureApiRouter.get('/box', async (req, res) => {
-    const authToken = req.cookies[authCookieName];
-    const user = await DB.getUserByToken(authToken);
+    const user = DB.getUser(req.query.userName);
     res.send(user.recipes);
 });
 
