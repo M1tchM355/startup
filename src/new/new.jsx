@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './new.css'
 import { Recipe } from '../recipe/recipe.jsx';
+const config = require('./apiConfig.json');
 
 export function New() {
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);
@@ -9,11 +10,12 @@ export function New() {
   const [newRecipe, setNewRecipe] = React.useState('');
 
   const getRecipe = async (ingredients, specifications) => {
+    const auth = `Bearer ${config.key}`;
     const apiReturn = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization': auth
       },
       body: JSON.stringify({
         "model": "llama3-8b-8192",
