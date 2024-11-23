@@ -31,8 +31,14 @@ export function New() {
   }
   
   const handleGenerateClick = async (e) => {
-    const ingredients = document.getElementById('ingredients').value
-    const specifications = document.getElementById('specifications').value
+    let ingredients = document.getElementById('ingredients').value
+    if(ingredients === ''){
+      ingredients = 'Choose any ingredients you want'
+    }
+    let specifications = document.getElementById('specifications').value
+    if(specifications === ''){
+      specifications = 'No specifications'
+    }
     const newestRecipe = await getRecipe(ingredients, specifications);
     setNewRecipe(newestRecipe);
     //console.log("New Recipe Set:", newestRecipe);
