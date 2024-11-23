@@ -30,26 +30,6 @@ export function New() {
     return(recipe);
   }
   
-
-  //this is a helper function to generate random text for the recipes. this will change once I implement the AI API
-  const generateRandomText = () => {
-    const titles = ["Delicious Pancakes", "Spaghetti Bolognese", "Veggie Stir-Fry", "Homemade Pizza"];
-    const descriptions = [
-      "A quick and easy recipe to make at home.",
-      "A family favorite with lots of flavor.",
-      "Packed with fresh vegetables and taste.",
-      "Perfect for a cozy night in."
-    ];
-    const reviews = ['0 stars, no comments', '2 stars, 3 comments', '5 stars, 10 comments'];
-    const randomID = Math.floor(Math.random() * 100);
-    const randomTitle = titles[Math.floor(Math.random() * titles.length)];
-    const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
-    const randomIngredients = ["Flour", "Sugar", "Salt", "Eggs", "Milk", "Butter"];
-    const randomDirections = 'Mix the ingredients together!';
-    const randomReviews = reviews[Math.floor(Math.random() * reviews.length)];
-    return { title: randomTitle, description: randomDescription, ingredients: randomIngredients, directions: randomDirections, reviews: randomReviews, recipeID: randomID};
-  };
-
   const handleGenerateClick = async (e) => {
     const ingredients = document.getElementById('ingredients').value
     const specifications = document.getElementById('specifications').value
