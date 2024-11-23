@@ -49,10 +49,6 @@ async function addCommunityRecipe(recipe) {
   return recipeCollection.insertOne(recipe);
 }
 
-function getPersonalRecipes() {
-  //to this
-}
-
 function getCommunityRecipes() {
   const query = { //come back to this };
   const options = {

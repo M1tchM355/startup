@@ -82,22 +82,21 @@ secureApiRouter.get('/community', async (_req, res) => {
 
 // SubmitToCommunityBox
 secureApiRouter.post('/community', async (req, res) => {
-    const recipe = { ..req.body, ip: req.ip };
+    const recipe = { ...req.body, ip: req.ip };
     await DB.addCommunityRecipe(recipe);
     const communityBox = await DB.getCommunityRecipes();
     res.send(communityBox);
 });
 
 // GetPersonalRecipes
-apiRouter.get('/box', (req, res) => {
-    const user = Object.values(users).find((u) => u.userName === req.query.userName);
-    if (user) {
-        res.send(user.recipes);
-    }
+secureApiRouter.get('/box', async (_req, res) => {
+    const authToken = req.cookies[authCookieName];
+    const user = await DB.getUserByToken(authToken);
+    res.send(user.recipes);
 });
 
 //AddToPersonalBox
-apiRouter.post('/box', (req, res) => {
+secureApiRouter.post('/box', async (req, res) => {
     const user = Object.values(users).find((u) => u.userName === req.query.userName);
     if (user) {
         found = false;
