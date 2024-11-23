@@ -53,13 +53,7 @@ async function addCommunityRecipe(recipe) {
 }
 
 function getCommunityRecipes() {
-  const query = { //come back to this };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = recipeCollection.find(query, options);
-  return cursor.toArray();
+  return recipeCollection.toArray();
 }
 
 module.exports = {
@@ -68,6 +62,5 @@ module.exports = {
   createUser,
   addPersonalRecipe,
   addCommunityRecipe,
-  getPersonalRecipes,
   getCommunityRecipes
 };
