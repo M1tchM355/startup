@@ -12,22 +12,25 @@ export function Recipe({ recipe }) {
   };
 
 
-return (
-  <main>
-    <section className='recipe-card'>
-      <p className='recipe'>{recipe}</p>
-      <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
-    </section>
-  </main>
-);
+// return (
+//   <main>
+//     <section className='recipe-card'>
+//       <p className='recipe'>{recipe}</p>
+//       <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
+//     </section>
+//   </main>
+// );
 
   
 
 
-  const recipeString = recipe.recipe;
+  const recipeString = recipe;
   const [title, servings, ...rest] = recipeString.split('\n\n');
-  const ingredientsIndex = rest.findIndex((section) => section.startsWith('**Ingredients:**'));
-  const instructionsIndex = rest.findIndex((section) => section.startsWith('**Instructions:**'));
+  const ingredientsIndex = rest.findIndex((section) => section.startsWith('**Ingredients:**'))+1;
+  console.log(ingredientsIndex);
+  const instructionsIndex = rest.findIndex((section) => section.startsWith('**Instructions:**'))+1;
+  console.log(instructionsIndex);
+  console.log(rest);
 
   const ingredients = rest[ingredientsIndex]
     ?.replace('**Ingredients:**', '')
@@ -39,7 +42,7 @@ return (
     ?.replace('**Instructions:**', '')
     .split('\n')
     .filter((line) => line.trim().match(/^\d+\./)) // Filter lines that start with numbers
-    .map((line) => line.trim()); // Clean up whitespace
+    .map((line) => line.trim().substring(2)); // Clean up whitespace
 
   return (
     <main>
