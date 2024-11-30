@@ -54,7 +54,7 @@ async function addCommunityRecipe(recipe) {
 
 function getCommunityRecipes() {
   //const collection = db.collection('recipeCollection');
-  const comRecipes = recipeCollection.find().toArray();
+  const comRecipes = recipeCollection.find().sort({ ID: -1 }).toArray();
   return comRecipes;
 }
 
