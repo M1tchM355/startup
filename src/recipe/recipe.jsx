@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function Recipe({ recipe, displayButton }) {
-  //const [inPersonalBox, setInPersonalBox] = React.useState(false);
+  const [showButton, setShowButton] = React.useState(displayButton);
   const handleAddToPersonal = () => {
     //setInPersonalBox(true);
     fetch('/api/personalBox/'+localStorage.getItem('userName'), {
@@ -9,6 +9,7 @@ export function Recipe({ recipe, displayButton }) {
       body: JSON.stringify({'recipe': recipe}),
       headers: { 'content-type': 'application/json' }
     })
+    setShowButton(false);
   };
 
   const recipeString = recipe;
@@ -48,7 +49,7 @@ export function Recipe({ recipe, displayButton }) {
             <li key={index}>{instruction}</li>
           ))}
         </ul>
-        {displayButton && (
+        {showButton && (
           <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
         )}
       </section>
