@@ -21,7 +21,7 @@ export function Community() {
         {recipes.map((recipe,index) => (
           <Recipe
             key={index}
-            recipe={JSON.stringify(recipe.recipe)}
+            recipe={recipe.recipe}
             />
         ))}
       </div>

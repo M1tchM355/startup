@@ -11,19 +11,6 @@ export function Recipe({ recipe }) {
     })
   };
 
-
-// return (
-//   <main>
-//     <section className='recipe-card'>
-//       <p className='recipe'>{recipe}</p>
-//       <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
-//     </section>
-//   </main>
-// );
-
-  
-
-
   const recipeString = recipe;
   const [title, servings, ...rest] = recipeString.split('\n\n');
   const ingredientsIndex = rest.findIndex((section) => section.startsWith('**Ingredients:**'))+1;
