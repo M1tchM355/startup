@@ -22,6 +22,7 @@ export function Community() {
           <Recipe
             key={index}
             recipe={recipe.recipe}
+            displayButton={true}
             />
         ))}
       </div>

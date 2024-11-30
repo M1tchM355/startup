@@ -22,6 +22,7 @@ export function Box() {
           <Recipe
             key={index}
             recipe={recipe}
+            displayButton={false}
             />
         ))}
       </div>

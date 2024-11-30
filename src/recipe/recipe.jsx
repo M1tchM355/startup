@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Recipe({ recipe }) {
+export function Recipe({ recipe, displayButton }) {
   //const [inPersonalBox, setInPersonalBox] = React.useState(false);
   const handleAddToPersonal = () => {
     //setInPersonalBox(true);
@@ -29,7 +29,7 @@ export function Recipe({ recipe }) {
     ?.replace('**Instructions:**', '')
     .split('\n')
     .filter((line) => line.trim().match(/^\d+\./)) // Filter lines that start with numbers
-    .map((line) => line.trim().substring(2)); // Clean up whitespace
+    .map((line) => line.trim()); // Clean up whitespace
 
   return (
     <main>
@@ -43,12 +43,14 @@ export function Recipe({ recipe }) {
           ))}
         </ul>
         <h4>Instructions:</h4>
-        <ol className='recipe-instructions'>
+        <ul className='recipe-instructions'>
           {instructions?.map((instruction, index) => (
             <li key={index}>{instruction}</li>
           ))}
-        </ol>
-        <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
+        </ul>
+        {displayButton && (
+          <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
+        )}
       </section>
     </main>
   );
