@@ -48,8 +48,8 @@ export function Recipe({ recipe }) {
             <li key={index}>{instruction}</li>
           ))}
         </ol>
+        <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
       </section>
-      <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
     </main>
   );
 
