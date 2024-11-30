@@ -14,10 +14,10 @@ export function Recipe({ recipe }) {
   const recipeString = recipe;
   const [title, servings, ...rest] = recipeString.split('\n\n');
   const ingredientsIndex = rest.findIndex((section) => section.startsWith('**Ingredients:**'))+1;
-  console.log(ingredientsIndex);
+  //console.log(ingredientsIndex);
   const instructionsIndex = rest.findIndex((section) => section.startsWith('**Instructions:**'))+1;
-  console.log(instructionsIndex);
-  console.log(rest);
+  //console.log(instructionsIndex);
+  //console.log(rest);
 
   const ingredients = rest[ingredientsIndex]
     ?.replace('**Ingredients:**', '')
