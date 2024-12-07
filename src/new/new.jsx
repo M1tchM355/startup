@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import './new.css'
 import { Recipe } from '../recipe/recipe.jsx';
 import config from './apiConfig.json';
@@ -58,17 +57,18 @@ export function New() {
   return (
     <main className="container-fluid">
       <h1>New Recipe</h1>
+      <p>Add ingredients to get started, or leave blank to generate a random recipe.</p>
         <section className="generate">
           <form>
-            <div>
-              <p>What ingredients do you want the recipe to include?</p>
-              <input type="textarea" id="ingredients" placeholder="Type ingredients here" />
+            <div className="form-group">
+              <label htmlFor="ingredients">What ingredients do you want the recipe to include?</label>
+              <textarea id="ingredients" placeholder="Type ingredients here" rows="4" />
             </div>
-            <div>
-              <p>Any other specifications?</p>
-              <input type="textarea" id="specifications" placeholder="Breakfast, snack, healthy, quick, etc" />
+            <div className="form-group">
+              <label htmlFor="specifications">Any other specifications?</label>
+              <textarea id="specifications" placeholder="Breakfast, snack, healthy, quick, etc" rows="4" />
             </div>
-            <button type="button" onClick={handleGenerateClick}>Generate!</button>
+            <button type="button" className="generate-button" onClick={handleGenerateClick}>Generate!</button>
           </form>
         </section>
       {showNewRecipe && (
