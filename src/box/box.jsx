@@ -13,19 +13,22 @@ export function Box() {
       })
   }, [])
 
-
   return (
     <main>
       <h1>My Recipe Box</h1>
-      <div className='recipe-list'>
-        {recipes.map((recipe,index) => (
-          <Recipe
-            key={index}
-            recipe={recipe}
-            displayButton={false}
+      {recipes.length === 0 ? (
+        <p className="no-recipes-message">You have no saved recipes.</p>
+      ) : (
+        <div className="recipe-list">
+          {recipes.map((recipe, index) => (
+            <Recipe
+              key={index}
+              recipe={recipe}
+              displayButton={false}
             />
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </main>
   );
 }
