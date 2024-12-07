@@ -5,7 +5,7 @@
 }
 
 header {
-    flex: 0 80px;
+    flex: 0 0 80px;
     padding : 10px;
 }
 
@@ -15,10 +15,11 @@ header span {
 
 main {
     flex: 1 calc(100vh - 110px);
+    padding-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .navbar-nav {
