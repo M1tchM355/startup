@@ -102,3 +102,4 @@ For this deliverable I used webSocket to alert users when other users created a 
 -  **Frontend makes WebSocket connection** - done!
 -  **Data sent over WebSocket connection** - done!
 -  **WebSocket data displayed** - When users generate a new recipe, a message is broadcast to all other users. It is displayed on the top left for 5 seconds
+-  **Full Functionality** - Everything is fully functional!
