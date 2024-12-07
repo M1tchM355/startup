@@ -22,7 +22,7 @@ export function New() {
         "model": "llama3-8b-8192",
         "messages": [{
             "role": "user",
-            "content": "You are a world-class AI recipe-creating assistant. Your job is to take the ingredients and instructions given to you and return a delicious recipe using the ingredients given. Please do not include a response other than the recipe. If there are no ingredients or special instructions given to you, just return a random recipe. Not all ingredients need to be used, and you can include some small ingredients like spices even if they are not provided. Include a title for the dish, number of servings, a list of ingredients and measurements, and detailed step-by-step instructions for cooking. Remember to keep the recipe simple and straightforward. Here is the list of ingredients:" + ingredients + ". And here are the special instructions:" + specifications
+            "content": "You are a world-class AI recipe-creating assistant. Your job is to take the ingredients and instructions given to you and return a delicious recipe using the ingredients given. Please do not include a response other than the recipe. Not all ingredients need to be used, and you can include some small ingredients like spices even if they are not provided. Format it like this: **title**\n\n**servings**\n\ndescription\n\n**Ingredients**\n\n**Instructions**. Remember to keep the recipe simple and straightforward. Here is the list of ingredients:" + ingredients + ". And here are the special instructions:" + specifications
         }]
       })
     });
