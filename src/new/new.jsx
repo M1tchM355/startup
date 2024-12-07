@@ -72,15 +72,10 @@ export function New() {
           </form>
         </section>
       {showNewRecipe && (
-        <section className="recipe-card">
         <Recipe 
           recipe={newRecipe}
           displayButton={true}
         />
-        {/* <Button variant='primary' onClick={() => navigate('/recipe')}>
-          See full recipe
-        </Button> */}
-        </section>
       )}
     </main>
   );
