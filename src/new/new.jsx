@@ -50,6 +50,7 @@ export function New() {
       headers: { 'content-type': 'application/json' }
     })
 
+    Recipe
     //let others know a new recipe was generated
     RecipeNotifier.broadcastEvent(localStorage.getItem('userName'), RecipeEvent.New, {});
   };

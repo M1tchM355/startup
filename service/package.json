@@ -10,11 +10,14 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "22": "^0.0.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "express": "^4.21.1",
     "mongodb": "^6.11.0",
     "node": "^20.18.1",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.3",
+    "websocket": "^1.0.35",
+    "ws": "^8.18.0"
   }
 }

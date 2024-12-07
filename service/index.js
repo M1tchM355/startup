@@ -125,8 +125,8 @@ function setAuthCookie(res, authToken) {
     });
 }
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
 peerProxy(httpService);

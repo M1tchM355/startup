@@ -16,6 +16,10 @@ const RecipeEvent = {
     handlers = [];
   
     constructor() {
+      // const notification = document.createElement('div');
+      // notification.className = 'test';
+      // notification.innerText = 'test';
+      // document.body.appendChild(notification);
       let port = window.location.port;
       const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
       this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
