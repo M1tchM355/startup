@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import './new.css'
 import { Recipe } from '../recipe/recipe.jsx';
 import config from './apiConfig.json';
+import { RecipeEvent, RecipeNotifier } from '../recipeNotifier.js';
 
 export function New() {
   const [showNewRecipe, setShowNewRecipe] = React.useState(false);
@@ -48,6 +49,9 @@ export function New() {
       body: JSON.stringify({recipe: newestRecipe}),
       headers: { 'content-type': 'application/json' }
     })
+
+    //let others know a new recipe was generated
+    RecipeNotifier.broadcastEvent(localStorage.getItem('userName'), RecipeEvent.New, {});
   };
 
   return (

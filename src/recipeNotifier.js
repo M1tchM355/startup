@@ -1,7 +1,6 @@
-const GameEvent = {
+const RecipeEvent = {
     System: 'system',
-    End: 'gameEnd',
-    Start: 'gameStart',
+    New: 'recipeNew'
   };
   
   class EventMessage {
@@ -12,7 +11,7 @@ const GameEvent = {
     }
   }
   
-  class GameEventNotifier {
+  class RecipeEventNotifier {
     events = [];
     handlers = [];
   
@@ -21,10 +20,10 @@ const GameEvent = {
       const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
       this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
       this.socket.onopen = (event) => {
-        this.receiveEvent(new EventMessage('Startup', GameEvent.System, { msg: 'connected' }));
+        this.receiveEvent(new EventMessage('Startup', RecipeEvent.System, { msg: 'connected' }));
       };
       this.socket.onclose = (event) => {
-        this.receiveEvent(new EventMessage('Startup', GameEvent.System, { msg: 'disconnected' }));
+        this.receiveEvent(new EventMessage('Startup', RecipeEvent.System, { msg: 'disconnected' }));
       };
       this.socket.onmessage = async (msg) => {
         try {
@@ -38,26 +37,27 @@ const GameEvent = {
       const event = new EventMessage(from, type, value);
       this.socket.send(JSON.stringify(event));
     }
-  
-    addHandler(handler) {
-      this.handlers.push(handler);
-    }
-  
-    removeHandler(handler) {
-      this.handlers.filter((h) => h !== handler);
-    }
-  
+
     receiveEvent(event) {
       this.events.push(event);
+
+      if (event.type === RecipeEvent.New) {
+        this.showNotification(event.from, 'created a new recipe!');
+      }
+    }
+
+    showNotification(from, message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification-popup';
+      notification.innerText = `${from} ${message}`;
+      document.body.appendChild(notification);
   
-      this.events.forEach((e) => {
-        this.handlers.forEach((handler) => {
-          handler(e);
-        });
-      });
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 5000); // Notification disappears after 5 seconds
     }
   }
   
-  const GameNotifier = new GameEventNotifier();
-  export { GameEvent, GameNotifier };
+  const RecipeNotifier = new RecipeEventNotifier();
+  export { RecipeEvent, RecipeNotifier };
   
