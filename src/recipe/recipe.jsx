@@ -2,6 +2,7 @@ import React from 'react';
 
 export function Recipe({ recipe, displayButton }) {
   const [showButton, setShowButton] = React.useState(displayButton);
+
   const handleAddToPersonal = () => {
     //setInPersonalBox(true);
     fetch('/api/personalBox/'+localStorage.getItem('userName'), {
@@ -30,7 +31,7 @@ export function Recipe({ recipe, displayButton }) {
     ?.replace('**Instructions:**', '')
     .split('\n')
     .filter((line) => line.trim().match(/^\d+\./)) // Filter lines that start with numbers
-    .map((line) => line.trim()); // Clean up whitespace
+    .map((line) => line.trim().replace(/^\d+\.\s*/, '')); // Clean up whitespace, remove numbers
 
   return (
     <main>
@@ -44,11 +45,11 @@ export function Recipe({ recipe, displayButton }) {
           ))}
         </ul>
         <h4>Instructions:</h4>
-        <ul className='recipe-instructions'>
+        <ol className='recipe-instructions'>
           {instructions?.map((instruction, index) => (
             <li key={index}>{instruction}</li>
           ))}
-        </ul>
+        </ol>
         {showButton && (
           <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
         )}
