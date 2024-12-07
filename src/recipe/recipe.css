@@ -1,0 +1,46 @@
+.recipe-card {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.show-recipe-toggle {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    background: none;
+    border: none;
+    color: blue;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+  
+.show-recipe-toggle:hover {
+    color: darkblue;
+}
+
+.add-to-personal-btn {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+.add-to-personal-btn:hover {
+    background-color: #5a6368;
+    transform: scale(1.05);
+}
+  
+.add-to-personal-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
+}

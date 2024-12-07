@@ -1,4 +1,5 @@
 import React from 'react';
+import './recipe.css'
 
 export function Recipe({ recipe, displayButton }) {
   const [showButton, setShowButton] = React.useState(displayButton);
@@ -39,6 +40,7 @@ export function Recipe({ recipe, displayButton }) {
     : [];
 
   const cleanDescription = description?.replace(/^description:\s*/, '');
+  
   return (
     <main>
       <section className='recipe-card'>
@@ -62,9 +64,9 @@ export function Recipe({ recipe, displayButton }) {
           </>
         )}
         {showButton && (
-          <button type="button" onClick={handleAddToPersonal}>Add to personal box</button>
+          <button type="button" onClick={handleAddToPersonal} className="add-to-personal-btn">Add to personal box</button>
         )}
-        <button type="button" onClick={handleToggleShowRecipe}>
+        <button type="button" onClick={handleToggleShowRecipe} className="show-recipe-toggle">
           {showFullRecipe ? 'Show Less' : 'Show More'}
         </button>
       </section>
