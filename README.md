@@ -93,3 +93,13 @@ For this deliverable I save every recipe in the database under the community rec
 - **Existing user authentication and logout** - Authenticates user in the database.
 - **Use MongoDB to store credentials** - Stores both user and their personal recipe box.
 - **Restricts functionality** - You cannot create new recipes or access anything until you have logged in
+
+## WebSocket deliverable
+
+For this deliverable I used webSocket to alert users when other users created a new recipe.
+
+-  **Backend listens for WebSocket connection** - done!
+-  **Frontend makes WebSocket connection** - done!
+-  **Data sent over WebSocket connection** - done!
+-  **WebSocket data displayed** - When users generate a new recipe, a message is broadcast to all other users. It is displayed on the top left for 5 seconds
+-  **Full Functionality** - Everything is fully functional!
